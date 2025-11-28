@@ -1,12 +1,11 @@
 import { type ClassValue, clsx } from 'clsx'
-import { twMerge } from 'tailwind-merge'
 
 /**
  * Utility function to merge Tailwind CSS classes
- * Combines clsx for conditional classes and tailwind-merge to handle conflicts
+ * Combines clsx for conditional classes
  */
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return clsx(inputs)
 }
 
 /**
@@ -38,19 +37,38 @@ export function isValidUKPhone(phone: string): boolean {
 }
 
 /**
- * Smooth scroll to element
+ * Truncate text to specified length
+ */
+export function truncateText(text: string, maxLength: number): string {
+  if (text.length <= maxLength) return text
+  return text.slice(0, maxLength).trim() + '...'
+}
+
+/**
+ * Scroll to element with offset for fixed header
  */
 export function scrollToElement(elementId: string, offset: number = 80) {
-  const element = document.querySelector(elementId)
+  const element = document.getElementById(elementId)
   if (element) {
     const elementPosition = element.getBoundingClientRect().top
     const offsetPosition = elementPosition + window.pageYOffset - offset
 
     window.scrollTo({
       top: offsetPosition,
-      behavior: 'smooth'
+      behavior: 'smooth',
     })
   }
+}
+
+/**
+ * Format date to readable string
+ */
+export function formatDate(date: Date): string {
+  return new Intl.DateTimeFormat('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }).format(date)
 }
 
 /**

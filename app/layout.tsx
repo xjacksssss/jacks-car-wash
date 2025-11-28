@@ -1,28 +1,28 @@
 import type { Metadata } from 'next'
-import { Inter, Roboto } from 'next/font/google'
+import { Inter, Poppins } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({
+const inter = Inter({ 
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
 })
 
-const roboto = Roboto({
-  weight: ['300', '400', '500', '700'],
+const poppins = Poppins({ 
+  weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
-  variable: '--font-roboto',
+  variable: '--font-poppins',
   display: 'swap',
 })
 
 export const metadata: Metadata = {
-  title: 'Jacks Car Wash - Reliable Trade Services in Shepperton',
-  description: 'Over 15 years of experience serving the Shepperton community. Fully licensed and insured professionals committed to quality workmanship and customer satisfaction.',
-  keywords: ['trade services shepperton', 'reliable trade services', 'local trade professionals', 'shepperton home services', 'shepperton property maintenance'],
+  title: 'Jacks Car Wash | Professional Car Wash Services in Shepperton',
+  description: 'Over 15 years of experience delivering quality car wash services and exceptional customer service in Shepperton and beyond. Get a free quote today!',
+  keywords: ['car wash shepperton', 'car detailing', 'vehicle cleaning', 'professional car wash', 'shepperton car services'],
   authors: [{ name: 'Jacks Car Wash' }],
   openGraph: {
-    title: 'Jacks Car Wash - Reliable Trade Services in Shepperton',
-    description: 'Over 15 years of experience serving the Shepperton community. Fully licensed and insured professionals.',
+    title: 'Jacks Car Wash | Professional Car Wash Services in Shepperton',
+    description: 'Over 15 years of experience delivering quality car wash services and exceptional customer service in Shepperton and beyond.',
     url: 'https://jackscarwash.com',
     siteName: 'Jacks Car Wash',
     locale: 'en_GB',
@@ -38,13 +38,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jacks Car Wash - Reliable Trade Services in Shepperton',
-    description: 'Over 15 years of experience serving the Shepperton community.',
-  },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
+    title: 'Jacks Car Wash | Professional Car Wash Services',
+    description: 'Over 15 years of experience delivering quality car wash services in Shepperton.',
   },
   robots: {
     index: true,
@@ -57,6 +52,11 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
 }
 
 export default function RootLayout({
@@ -67,7 +67,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        {/* Google Analytics - Replace GA_MEASUREMENT_ID with your actual ID */}
+        {/* Google Analytics - Replace with actual GA ID */}
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
@@ -83,7 +83,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} ${roboto.variable} font-body antialiased`}>
+      <body className={`${inter.variable} ${poppins.variable} font-body antialiased`}>
         {children}
       </body>
     </html>

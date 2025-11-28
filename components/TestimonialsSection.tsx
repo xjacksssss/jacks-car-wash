@@ -1,36 +1,37 @@
 'use client'
 
 import { useState } from 'react'
+import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react'
 import Image from 'next/image'
 
 const testimonials = [
   {
-    name: 'Sarah Mitchell',
+    name: 'Sarah Johnson',
     location: 'Shepperton',
     rating: 5,
-    text: 'Absolutely fantastic service! My car looks brand new. The attention to detail is incredible and the team is very professional. Highly recommend!',
-    image: 'https://placehold.co/100x100/3B82F6/FFFFFF?text=SM',
+    text: 'Absolutely brilliant service! Jack did an amazing job on my car. It looks brand new. Very professional and reasonably priced. Highly recommend!',
+    image: 'https://placehold.co/100x100/3B82F6/FFFFFF?text=SJ',
   },
   {
-    name: 'David Thompson',
+    name: 'Michael Thompson',
+    location: 'Sunbury-on-Thames',
+    rating: 5,
+    text: 'I\'ve been using Jacks Car Wash for years. Always reliable, thorough, and friendly service. They really care about their customers and it shows in their work.',
+    image: 'https://placehold.co/100x100/10B981/FFFFFF?text=MT',
+  },
+  {
+    name: 'Emma Davies',
     location: 'Walton-on-Thames',
     rating: 5,
-    text: 'Been using Jacks Car Wash for over 3 years now. Always reliable, always professional. They treat your car like their own. Best in the area!',
-    image: 'https://placehold.co/100x100/10B981/FFFFFF?text=DT',
+    text: 'Fantastic attention to detail! My car interior was in a terrible state with kids and pets, but Jack transformed it completely. Couldn\'t be happier with the results.',
+    image: 'https://placehold.co/100x100/EF4444/FFFFFF?text=ED',
   },
   {
-    name: 'Emma Roberts',
-    location: 'Sunbury',
-    rating: 5,
-    text: 'Outstanding work! The full valet service exceeded my expectations. My car interior looks and smells amazing. Will definitely be returning.',
-    image: 'https://placehold.co/100x100/EF4444/FFFFFF?text=ER',
-  },
-  {
-    name: 'Michael Brown',
+    name: 'David Wilson',
     location: 'Shepperton',
     rating: 5,
-    text: 'Professional, efficient, and great value for money. The team went above and beyond to ensure I was completely satisfied. Five stars!',
-    image: 'https://placehold.co/100x100/3B82F6/FFFFFF?text=MB',
+    text: 'Professional, efficient, and great value for money. Jack is friendly and always goes the extra mile. My go-to car wash service!',
+    image: 'https://placehold.co/100x100/3B82F6/FFFFFF?text=DW',
   },
 ]
 
@@ -48,29 +49,36 @@ export default function TestimonialsSection() {
   const currentTestimonial = testimonials[currentIndex]
 
   return (
-    <section id="testimonials" className="section bg-background-secondary">
+    <section id="testimonials" className="section-padding bg-background-secondary">
       <div className="container-custom">
-        <div className="text-center mb-12">
-          <h2 className="text-text-primary mb-4">What Our Customers Say</h2>
-          <p className="text-xl text-text-secondary max-w-2xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="section-title">What Our Customers Say</h2>
+          <p className="section-subtitle">
             Don't just take our word for it - hear from our satisfied customers
           </p>
         </div>
 
-        {/* Carousel */}
         <div className="max-w-4xl mx-auto">
+          {/* Main Testimonial Card */}
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 relative">
-            {/* Quote Icon */}
-            <div className="absolute top-8 left-8 text-primary/20">
-              <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-              </svg>
-            </div>
+            <Quote className="absolute top-8 left-8 w-12 h-12 text-primary/20" />
+            
+            <div className="relative z-10">
+              {/* Stars */}
+              <div className="flex justify-center mb-6">
+                {[...Array(currentTestimonial.rating)].map((_, i) => (
+                  <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
+                ))}
+              </div>
 
-            {/* Testimonial Content */}
-            <div className="relative z-10 pt-12">
-              <div className="flex flex-col items-center text-center mb-6">
-                <div className="relative w-20 h-20 mb-4 rounded-full overflow-hidden">
+              {/* Testimonial Text */}
+              <p className="text-xl md:text-2xl text-text-primary text-center mb-8 leading-relaxed">
+                "{currentTestimonial.text}"
+              </p>
+
+              {/* Author */}
+              <div className="flex flex-col items-center">
+                <div className="relative w-20 h-20 rounded-full overflow-hidden mb-4">
                   <Image
                     src={currentTestimonial.image}
                     alt={currentTestimonial.name}
@@ -78,52 +86,30 @@ export default function TestimonialsSection() {
                     className="object-cover"
                   />
                 </div>
-                
-                {/* Star Rating */}
-                <div className="flex gap-1 mb-4">
-                  {[...Array(currentTestimonial.rating)].map((_, i) => (
-                    <svg
-                      key={i}
-                      className="w-6 h-6 text-yellow-400 fill-current"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                    </svg>
-                  ))}
-                </div>
-
-                <p className="text-lg md:text-xl text-text-secondary leading-relaxed mb-6 italic">
-                  "{currentTestimonial.text}"
-                </p>
-
-                <div>
-                  <h4 className="text-xl font-semibold text-text-primary">
-                    {currentTestimonial.name}
-                  </h4>
-                  <p className="text-text-secondary">{currentTestimonial.location}</p>
-                </div>
+                <h4 className="font-heading font-semibold text-lg text-text-primary">
+                  {currentTestimonial.name}
+                </h4>
+                <p className="text-text-secondary">{currentTestimonial.location}</p>
               </div>
             </div>
 
             {/* Navigation Buttons */}
-            <div className="flex justify-between items-center mt-8">
+            <div className="flex justify-center items-center space-x-4 mt-8">
               <button
                 onClick={prevTestimonial}
-                className="p-3 rounded-full bg-primary/10 hover:bg-primary hover:text-white transition-colors"
+                className="p-2 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300"
                 aria-label="Previous testimonial"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-                </svg>
+                <ChevronLeft className="w-6 h-6" />
               </button>
-
-              {/* Dots Indicator */}
-              <div className="flex gap-2">
+              
+              {/* Dots */}
+              <div className="flex space-x-2">
                 {testimonials.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentIndex(index)}
-                    className={`w-3 h-3 rounded-full transition-all ${
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
                       index === currentIndex
                         ? 'bg-primary w-8'
                         : 'bg-gray-300 hover:bg-gray-400'
@@ -135,25 +121,38 @@ export default function TestimonialsSection() {
 
               <button
                 onClick={nextTestimonial}
-                className="p-3 rounded-full bg-primary/10 hover:bg-primary hover:text-white transition-colors"
+                className="p-2 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300"
                 aria-label="Next testimonial"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                </svg>
+                <ChevronRight className="w-6 h-6" />
               </button>
             </div>
           </div>
-        </div>
 
-        {/* Call to Action */}
-        <div className="text-center mt-12">
-          <p className="text-lg text-text-secondary mb-6">
-            Join our hundreds of satisfied customers
-          </p>
-          <a href="#contact" className="btn-primary text-lg">
-            Get Your Free Quote
-          </a>
+          {/* All Testimonials Grid (Hidden on mobile) */}
+          <div className="hidden lg:grid grid-cols-4 gap-6 mt-12">
+            {testimonials.map((testimonial, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`p-4 rounded-lg border-2 transition-all duration-300 ${
+                  index === currentIndex
+                    ? 'border-primary bg-primary/5'
+                    : 'border-gray-200 hover:border-primary/50'
+                }`}
+              >
+                <div className="relative w-16 h-16 rounded-full overflow-hidden mx-auto mb-2">
+                  <Image
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <p className="font-semibold text-sm text-center">{testimonial.name}</p>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </section>

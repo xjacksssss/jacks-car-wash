@@ -1,36 +1,34 @@
-# Jacks Car Wash - Professional Car Care Services
+# Jacks Car Wash - Professional Car Wash Services Website
 
-A modern, responsive Next.js website for Jacks Car Wash, providing professional car care services in Shepperton and surrounding areas.
+A modern, responsive Next.js website for Jacks Car Wash, a professional car wash service based in Shepperton, England.
 
 ## 🚀 Features
 
-- **Modern Design**: Clean, professional interface with smooth animations
-- **Fully Responsive**: Optimized for all devices (mobile, tablet, desktop)
-- **SEO Optimized**: Built-in SEO best practices with metadata and Open Graph tags
-- **Performance Focused**: Fast loading times with Next.js 14+ App Router
-- **Contact Form**: Validated contact form with error handling
-- **Service Showcase**: Detailed service cards with images
-- **Customer Testimonials**: Interactive carousel showcasing customer reviews
-- **Google Maps Integration**: Embedded map showing business location
-- **Click-to-Call**: Mobile-optimized phone number buttons
-- **Accessibility**: ARIA labels and keyboard navigation support
+- **Modern Design**: Clean, professional minimal design with smooth animations
+- **Fully Responsive**: Optimized for all devices from mobile to desktop
+- **SEO Optimized**: Built-in SEO best practices with meta tags and semantic HTML
+- **Performance**: Optimized images, fonts, and code splitting for fast load times
+- **Contact Form**: Integrated contact form with validation
+- **Service Showcase**: Detailed service cards with icons and descriptions
+- **Testimonials**: Customer testimonials carousel
+- **Google Maps**: Embedded map showing business location
+- **Accessibility**: ARIA labels, keyboard navigation, and semantic HTML
 
-## 📋 Technology Stack
+## 🛠️ Technology Stack
 
 - **Framework**: Next.js 14+ (App Router)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
-- **Font Optimization**: next/font (Google Fonts)
-- **Image Optimization**: next/image
-- **Deployment**: GitHub Actions (FTP)
+- **Icons**: Lucide React
+- **Fonts**: Google Fonts (Inter & Poppins)
+- **Deployment**: ISPConfig via FTP (GitHub Actions)
 
-## 🛠️ Installation
+## 📋 Prerequisites
 
-### Prerequisites
-
-- Node.js 18.0 or higher
+- Node.js 18+ installed
 - npm or yarn package manager
+- Git for version control
 
-### Setup Instructions
+## 🔧 Installation
 
 1. **Clone the repository**
